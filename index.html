@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Trading Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <article class="card" aria-label="Digital trading card" aria-live="polite">
+        <div class="card__inner">
+          <div class="card__face card__face--front">
+            <header class="card__header">
+              <span class="badge">☕ Rare</span>
+              <span class="card__type">Coffee</span>
+            </header>
+
+            <div class="card__emoji" aria-label="Coffee emoji">☕</div>
+
+            <div class="card__art" aria-hidden="true">
+              <div class="art__glow"></div>
+              <div class="art__chip">LVL 99</div>
+              <div class="art__portrait">CE</div>
+            </div>
+
+            <section class="card__body">
+              <p class="eyebrow">Digital Profile</p>
+              <h1>Colin Esperanza</h1>
+
+              <div class="info-row">
+                <span class="label">Major</span>
+                <span class="value">Computer Science &amp; Engineering</span>
+              </div>
+
+              <div class="info-row info-row--highlight">
+                <span class="label">Special Ability</span>
+                <span class="value" data-ability>Inability to decide between more than one option.</span>
+              </div>
+
+              <div class="stats" aria-label="Power stats">
+                <div class="stat">
+                  <div class="stat__row">
+                    <span>Athleticism</span>
+                    <strong>75</strong>
+                  </div>
+                  <div class="bar">
+                    <span class="bar__fill" style="width: 75%"></span>
+                  </div>
+                </div>
+
+                <div class="stat">
+                  <div class="stat__row">
+                    <span>Snack Power</span>
+                    <strong>78</strong>
+                  </div>
+                  <div class="bar">
+                    <span class="bar__fill" style="width: 78%"></span>
+                  </div>
+                </div>
+
+                <div class="stat">
+                  <div class="stat__row">
+                    <span>Fashion Power</span>
+                    <strong>88</strong>
+                  </div>
+                  <div class="bar">
+                    <span class="bar__fill" style="width: 88%"></span>
+                  </div>
+                </div>
+              </div>
+
+              <footer class="card__footer">Hand-directed by me, built with AI</footer>
+            </section>
+          </div>
+
+          <div class="card__face card__face--back" aria-label="Card back">
+            <div class="back__header">Fun Fact</div>
+            <div class="back__content">
+              <p>My favorite way to reset is a coffee, a playlist, and a completely unnecessary choice of snack.</p>
+              <p>Still, I somehow always pick the same one.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section class="battle-panel" aria-label="Battle section">
+        <button class="battle-button" type="button">Battle!</button>
+        <div class="dice" aria-hidden="true">🎲</div>
+        <div class="battle-summary">
+          <p class="battle-label">Mysterious Rival</p>
+          <div class="rival-stats">
+            <div class="rival-stat">
+              <div class="rival-stat__row">
+                <span>Athleticism</span>
+                <strong id="opp-athleticism">--</strong>
+              </div>
+              <div class="bar bar--rival">
+                <span id="opp-athleticism-bar" class="bar__fill bar__fill--rival" style="width: 0%"></span>
+              </div>
+            </div>
+
+            <div class="rival-stat">
+              <div class="rival-stat__row">
+                <span>Snack Power</span>
+                <strong id="opp-snack">--</strong>
+              </div>
+              <div class="bar bar--rival">
+                <span id="opp-snack-bar" class="bar__fill bar__fill--rival" style="width: 0%"></span>
+              </div>
+            </div>
+
+            <div class="rival-stat">
+              <div class="rival-stat__row">
+                <span>Fashion Power</span>
+                <strong id="opp-fashion">--</strong>
+              </div>
+              <div class="bar bar--rival">
+                <span id="opp-fashion-bar" class="bar__fill bar__fill--rival" style="width: 0%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p id="battle-result" class="battle-result" aria-live="polite">Roll the dice...</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
