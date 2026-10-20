@@ -31,6 +31,22 @@ const oppFashionBar = document.getElementById('opp-fashion-bar');
 
 if (battleButton && battleResult && dice && oppAthleticism && oppSnack && oppFashion && oppAthleticismBar && oppSnackBar && oppFashionBar) {
   battleButton.addEventListener('click', () => {
+    // Reset anything previous before starting the battle.
+    battleResult.classList.remove('is-winning');
+    battleResult.textContent = 'Battle Underway!';
+    battleButton.disabled = true;
+
+    const rivalStatsPanel = document.querySelector('.rival-stats');
+    const battleDuel = document.querySelector('.battle-duel');
+
+    if (rivalStatsPanel) {
+      rivalStatsPanel.hidden = true;
+    }
+
+    if (battleDuel) {
+      battleDuel.hidden = false;
+    }
+
     // My own stat values.
     const myStats = {
       athleticism: 75,
@@ -48,37 +64,48 @@ if (battleButton && battleResult && dice && oppAthleticism && oppSnack && oppFas
       fashionPower: rollStat()
     };
 
-    // Show the rival stats and set the bars.
-    oppAthleticism.textContent = rivalStats.athleticism;
-    oppSnack.textContent = rivalStats.snackPower;
-    oppFashion.textContent = rivalStats.fashionPower;
-
-    oppAthleticismBar.style.width = `${rivalStats.athleticism}%`;
-    oppSnackBar.style.width = `${rivalStats.snackPower}%`;
-    oppFashionBar.style.width = `${rivalStats.fashionPower}%`;
-
-    // Combine each set of numbers.
-    const myTotal = myStats.athleticism + myStats.snackPower + myStats.fashionPower;
-    const rivalTotal = rivalStats.athleticism + rivalStats.snackPower + rivalStats.fashionPower;
-
-    // Decide the outcome.
-    let result = 'You Win!';
-    if (rivalTotal > myTotal) {
-      result = 'You Lose!';
-    } else if (rivalTotal === myTotal) {
-      result = 'It\'s a Tie!';
-    }
-
-    // Add a quick dice animation and show the result.
+    // Add a quick dice animation and wait a moment before revealing the result.
     dice.style.animation = 'none';
     void dice.offsetWidth;
     dice.style.animation = 'rollDice 0.5s ease-in-out';
 
-    battleResult.textContent = result;
-    battleResult.classList.add('is-winning');
-
     setTimeout(() => {
-      battleResult.classList.remove('is-winning');
-    }, 600);
+      // Show the rival stats and bars after the fight animation.
+      oppAthleticism.textContent = rivalStats.athleticism;
+      oppSnack.textContent = rivalStats.snackPower;
+      oppFashion.textContent = rivalStats.fashionPower;
+
+      oppAthleticismBar.style.width = `${rivalStats.athleticism}%`;
+      oppSnackBar.style.width = `${rivalStats.snackPower}%`;
+      oppFashionBar.style.width = `${rivalStats.fashionPower}%`;
+
+      if (rivalStatsPanel) {
+        rivalStatsPanel.hidden = false;
+      }
+
+      if (battleDuel) {
+        battleDuel.hidden = true;
+      }
+
+      // Combine each set of numbers.
+      const myTotal = myStats.athleticism + myStats.snackPower + myStats.fashionPower;
+      const rivalTotal = rivalStats.athleticism + rivalStats.snackPower + rivalStats.fashionPower;
+
+      // Decide the outcome.
+      let result = 'You Win!';
+      if (rivalTotal > myTotal) {
+        result = 'You Lose!';
+      } else if (rivalTotal === myTotal) {
+        result = 'It\'s a Tie!';
+      }
+
+      battleResult.textContent = result;
+      battleResult.classList.add('is-winning');
+      battleButton.disabled = false;
+
+      setTimeout(() => {
+        battleResult.classList.remove('is-winning');
+      }, 600);
+    }, 2000);
   });
 }
