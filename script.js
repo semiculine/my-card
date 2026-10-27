@@ -1,6 +1,48 @@
 // Card flip effect.
 const card = document.querySelector('.card');
 
+const welcomeStorageKey = 'my-card-welcome-shown';
+let hasSeenWelcome = false;
+
+try {
+  hasSeenWelcome = sessionStorage.getItem(welcomeStorageKey) === 'true';
+} catch (error) {
+  console.error('Unable to check whether the welcome dialog was shown this session.', error);
+}
+
+if (!hasSeenWelcome) {
+  const welcomeDialog = document.createElement('dialog');
+  welcomeDialog.className = 'welcome-dialog';
+  welcomeDialog.setAttribute('aria-labelledby', 'welcome-title');
+  welcomeDialog.setAttribute('aria-describedby', 'welcome-description');
+
+  const welcomeHeading = document.createElement('h2');
+  welcomeHeading.id = 'welcome-title';
+  welcomeHeading.textContent = 'Welcome!';
+
+  const welcomeDescription = document.createElement('p');
+  welcomeDescription.id = 'welcome-description';
+  welcomeDescription.textContent =
+    'Explore the trading card and use the navigation to find help and accessibility support.';
+
+  const welcomeCloseButton = document.createElement('button');
+  welcomeCloseButton.className = 'help-submit';
+  welcomeCloseButton.type = 'button';
+  welcomeCloseButton.textContent = 'Get started';
+  welcomeCloseButton.autofocus = true;
+  welcomeCloseButton.addEventListener('click', () => welcomeDialog.close());
+
+  welcomeDialog.append(welcomeHeading, welcomeDescription, welcomeCloseButton);
+  document.body.append(welcomeDialog);
+  welcomeDialog.showModal();
+
+  try {
+    sessionStorage.setItem(welcomeStorageKey, 'true');
+  } catch (error) {
+    console.error('Unable to remember that the welcome dialog was shown this session.', error);
+  }
+}
+
 if (card) {
   card.addEventListener('pointerenter', () => {
     card.classList.add('is-flipped');
@@ -108,4 +150,90 @@ if (battleButton && battleResult && dice && oppAthleticism && oppSnack && oppFas
       }, 600);
     }, 2000);
   });
+}
+
+const supportForm = document.getElementById('support-form');
+
+if (supportForm) {
+  const supportFields = [
+    {
+      input: document.getElementById('support-name'),
+      error: document.getElementById('support-name-error'),
+      emptyMessage: '▲ Please provide a name.',
+      invalidMessage: '▲ Please provide a name.'
+    },
+    {
+      input: document.getElementById('support-email'),
+      error: document.getElementById('support-email-error'),
+      emptyMessage: '▲ Please provide an email address.',
+      invalidMessage: '▲ Please provide a valid email address.'
+    },
+    {
+      input: document.getElementById('support-message'),
+      error: document.getElementById('support-message-error'),
+      emptyMessage: '▲ Please tell us how we can help.',
+      invalidMessage: '▲ Please tell us how we can help.'
+    }
+  ];
+  const formErrorBanner = document.getElementById('support-form-error');
+  const formStatus = document.getElementById('support-form-status');
+
+  if (supportFields.every(({ input, error }) => input && error) && formErrorBanner && formStatus) {
+    const validateField = ({ input, error, emptyMessage, invalidMessage }) => {
+      const isEmpty = !input.value.trim();
+      const isInvalid = isEmpty || !input.validity.valid;
+      error.textContent = isInvalid ? (isEmpty ? emptyMessage : invalidMessage) : '';
+
+      if (isInvalid) {
+        input.setAttribute('aria-invalid', 'true');
+      } else {
+        input.removeAttribute('aria-invalid');
+      }
+
+      return isInvalid;
+    };
+
+    supportFields.forEach((field) => {
+      const { input, error } = field;
+      input.addEventListener('input', () => {
+        formStatus.textContent = '';
+
+        if (formErrorBanner.hidden) {
+          error.textContent = '';
+          input.removeAttribute('aria-invalid');
+        } else {
+          let hasInvalidFields = false;
+          supportFields.forEach((field) => {
+            if (validateField(field)) {
+              hasInvalidFields = true;
+            }
+          });
+          formErrorBanner.hidden = !hasInvalidFields;
+        }
+      });
+    });
+
+    supportForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      let firstInvalidField = null;
+      supportFields.forEach((field) => {
+        const isInvalid = validateField(field);
+        if (isInvalid) {
+          firstInvalidField ??= field.input;
+        }
+      });
+
+      if (firstInvalidField) {
+        formErrorBanner.hidden = false;
+        formStatus.textContent = '';
+        firstInvalidField.focus();
+        return;
+      }
+
+      formErrorBanner.hidden = true;
+      formStatus.textContent =
+        'Your details are valid, but this demo form does not send messages.';
+    });
+  }
 }

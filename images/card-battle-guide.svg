@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title description">
+  <title id="title">Start a card battle</title>
+  <desc id="description">Press the Battle button, roll the dice, then compare your stats with the rival's.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#4a2d1f"/>
+      <stop offset="1" stop-color="#2b1b14"/>
+    </linearGradient>
+    <linearGradient id="button" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f7d881"/>
+      <stop offset="1" stop-color="#fff0a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="300" rx="18" fill="#f7ead8"/>
+  <rect x="24" y="27" width="592" height="246" rx="18" fill="url(#background)"/>
+  <text x="320" y="57" text-anchor="middle" fill="#f7ead8" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2">READY TO BATTLE?</text>
+  <rect x="55" y="91" width="174" height="139" rx="14" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".2"/>
+  <text x="142" y="119" text-anchor="middle" fill="#f7ead8" font-family="Arial, sans-serif" font-size="15" font-weight="700">YOUR STATS</text>
+  <text x="70" y="151" fill="#fff4e7" font-family="Arial, sans-serif" font-size="12">Athleticism</text>
+  <rect x="70" y="159" width="140" height="8" rx="4" fill="#ffffff" fill-opacity=".2"/>
+  <rect x="70" y="159" width="105" height="8" rx="4" fill="#f2c38b"/>
+  <text x="70" y="188" fill="#fff4e7" font-family="Arial, sans-serif" font-size="12">Snack power</text>
+  <rect x="70" y="196" width="140" height="8" rx="4" fill="#ffffff" fill-opacity=".2"/>
+  <rect x="70" y="196" width="116" height="8" rx="4" fill="#f2c38b"/>
+  <rect x="262" y="105" width="116" height="40" rx="20" fill="url(#button)"/>
+  <text x="320" y="131" text-anchor="middle" fill="#4a2d1f" font-family="Arial, sans-serif" font-size="15" font-weight="700">BATTLE!</text>
+  <rect x="298" y="164" width="44" height="44" rx="8" fill="#fff8f1" transform="rotate(8 320 186)"/>
+  <circle cx="311" cy="177" r="4" fill="#7b4b2a"/>
+  <circle cx="329" cy="195" r="4" fill="#7b4b2a"/>
+  <circle cx="329" cy="177" r="4" fill="#7b4b2a"/>
+  <text x="320" y="231" text-anchor="middle" fill="#f7ead8" font-family="Arial, sans-serif" font-size="11">ROLL THE DICE</text>
+  <rect x="411" y="91" width="174" height="139" rx="14" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".2"/>
+  <text x="498" y="119" text-anchor="middle" fill="#f7ead8" font-family="Arial, sans-serif" font-size="15" font-weight="700">RIVAL STATS</text>
+  <text x="426" y="151" fill="#fff4e7" font-family="Arial, sans-serif" font-size="12">Athleticism</text>
+  <rect x="426" y="159" width="140" height="8" rx="4" fill="#ffffff" fill-opacity=".2"/>
+  <rect x="426" y="159" width="82" height="8" rx="4" fill="#ffb38a"/>
+  <text x="426" y="188" fill="#fff4e7" font-family="Arial, sans-serif" font-size="12">Snack power</text>
+  <rect x="426" y="196" width="140" height="8" rx="4" fill="#ffffff" fill-opacity=".2"/>
+  <rect x="426" y="196" width="126" height="8" rx="4" fill="#ffb38a"/>
+  <path d="M229 156h27m122 0h27" stroke="#f7d881" stroke-width="3" stroke-linecap="round"/>
+  <path d="m248 149 8 7-8 7m141-14-8 7 8 7" fill="none" stroke="#f7d881" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="320" y="258" text-anchor="middle" fill="#f7d881" font-family="Arial, sans-serif" font-size="12" font-weight="700">COMPARE STATS TO SEE THE RESULT</text>
+</svg>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trading Card Tutorial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">My Card</a></li>
+        <li><a href="help1.html">FAQ &amp; Support</a></li>
+        <li><a href="help2.html" aria-current="page">How to Play</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="help-page">
+      <article class="help-content">
+        <header>
+          <p class="eyebrow">Visual User Guide</p>
+          <h1>Trading Card Tutorial</h1>
+          <p>
+            Follow these steps to explore your card and start a battle. The
+            illustrations point out the key details and controls at each step.
+          </p>
+        </header>
+
+        <section aria-labelledby="tutorial-heading">
+          <h2 id="tutorial-heading">How to use the card</h2>
+          <ol class="tutorial-steps">
+            <li>
+              <article class="tutorial-step">
+                <h3>Explore your card</h3>
+                <p>
+                  The front of the card shows the profile, special ability, and
+                  stats. Move your pointer over the card or click it to reveal
+                  the fun fact on the back.
+                </p>
+                <figure class="guide-figure">
+                  <img
+                    src="images/card-profile-guide.svg"
+                    alt="Illustration of the card front, highlighting the profile, special ability, and three stat bars."
+                  />
+                  <figcaption>Step 1: Find your profile and stats.</figcaption>
+                </figure>
+              </article>
+            </li>
+            <li>
+              <article class="tutorial-step">
+                <h3>Read the fun fact</h3>
+                <p>
+                  When the card flips, read the information on its back. Click
+                  the card again or move your pointer away to return to the
+                  front.
+                </p>
+                <figure class="guide-figure">
+                  <img
+                    src="images/card-fun-fact-guide.svg"
+                    alt="Illustration showing the card flipping from its profile side to reveal a fun fact on the reverse."
+                  />
+                  <figcaption>Step 2: Turn the card over to see its fun fact.</figcaption>
+                </figure>
+              </article>
+            </li>
+            <li>
+              <article class="tutorial-step">
+                <h3>Start a battle</h3>
+                <p>
+                  Select the Battle button below the card. The dice roll
+                  reveals a rival’s stats and shows the battle result.
+                </p>
+                <figure class="guide-figure">
+                  <img
+                    src="images/card-battle-guide.svg"
+                    alt="Illustration of the Battle button, a dice roll, rival stat bars, and the battle result."
+                  />
+                  <figcaption>Step 3: Roll the dice and compare stats.</figcaption>
+                </figure>
+              </article>
+            </li>
+          </ol>
+        </section>
+      </article>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

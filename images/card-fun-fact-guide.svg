@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title description">
+  <title id="title">Flip the card to read a fun fact</title>
+  <desc id="description">The profile card flips over to a dark reverse side containing a fun fact.</desc>
+  <defs>
+    <linearGradient id="front" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff8f1"/>
+      <stop offset="1" stop-color="#f2d8b8"/>
+    </linearGradient>
+    <linearGradient id="back" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#2a1b13"/>
+      <stop offset="1" stop-color="#7b4b2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="300" rx="18" fill="#f7ead8"/>
+  <rect x="48" y="48" width="174" height="204" rx="18" fill="url(#front)" stroke="#c77b45" stroke-width="3" transform="rotate(-8 135 150)"/>
+  <circle cx="135" cy="122" r="31" fill="#7b4b2a"/>
+  <text x="135" y="130" text-anchor="middle" fill="#fff8f1" font-family="Arial, sans-serif" font-size="23" font-weight="700">CE</text>
+  <text x="135" y="176" text-anchor="middle" fill="#2d1d17" font-family="Arial, sans-serif" font-size="14" font-weight="700">PROFILE</text>
+  <path d="M246 150h105" fill="none" stroke="#7b4b2a" stroke-width="5" stroke-linecap="round"/>
+  <path d="m337 137 16 13-16 13" fill="none" stroke="#7b4b2a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="298" y="126" text-anchor="middle" fill="#6c4d3a" font-family="Arial, sans-serif" font-size="13" font-weight="700">FLIP</text>
+  <rect x="382" y="38" width="214" height="224" rx="20" fill="url(#back)" stroke="#c77b45" stroke-width="3"/>
+  <circle cx="556" cy="69" r="3" fill="#f7d881"/>
+  <circle cx="581" cy="89" r="4" fill="#f7d881"/>
+  <circle cx="408" cy="223" r="4" fill="#f7d881"/>
+  <text x="489" y="91" text-anchor="middle" fill="#f2c38b" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2">FUN FACT</text>
+  <path d="M419 108h140" stroke="#f2c38b" stroke-opacity=".5"/>
+  <text x="489" y="143" text-anchor="middle" fill="#fff8f1" font-family="Arial, sans-serif" font-size="15" font-weight="700">A little surprise</text>
+  <text x="489" y="168" text-anchor="middle" fill="#fff8f1" font-family="Arial, sans-serif" font-size="13">Your fun fact appears</text>
+  <text x="489" y="188" text-anchor="middle" fill="#fff8f1" font-family="Arial, sans-serif" font-size="13">on the reverse side.</text>
+  <rect x="412" y="211" width="154" height="23" rx="11" fill="#f7d881"/>
+  <text x="489" y="227" text-anchor="middle" fill="#4a2d1f" font-family="Arial, sans-serif" font-size="11" font-weight="700">CLICK TO FLIP BACK</text>
+</svg>

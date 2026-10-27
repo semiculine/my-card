@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessibility Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">My Card</a></li>
+        <li><a href="help1.html" aria-current="page">FAQ &amp; Support</a></li>
+        <li><a href="help2.html">How to Play</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="help-page">
+      <article class="help-content">
+        <p class="eyebrow">Help &amp; Support</p>
+        <h1>Accessibility Support</h1>
+        <p>
+          This page offers tips for using the site with different access needs.
+          You can navigate the page using a keyboard, screen reader, or browser
+          zoom.
+        </p>
+
+        <section aria-labelledby="keyboard-heading">
+          <h2 id="keyboard-heading">Keyboard navigation</h2>
+          <p>
+            Press Tab to move through links and controls, and press Enter to
+            activate a link or button. A visible outline marks the currently
+            focused control.
+          </p>
+        </section>
+
+        <section aria-labelledby="reading-heading">
+          <h2 id="reading-heading">Making content easier to read</h2>
+          <p>
+            Use your browser’s zoom controls to enlarge the page. Headings and
+            labeled navigation help you find and move between sections.
+          </p>
+        </section>
+
+        <section aria-labelledby="feedback-heading">
+          <h2 id="feedback-heading">Need more help?</h2>
+          <p>
+            If you encounter an accessibility barrier, please share what page
+            you were using and what happened with the site owner.
+          </p>
+        </section>
+
+        <section aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Frequently asked questions</h2>
+          <details>
+            <summary>How can I use the site without a mouse?</summary>
+            <p>
+              Press Tab to move through links and controls, Shift+Tab to move
+              backward, and Enter or Space to activate the focused control.
+            </p>
+          </details>
+          <details>
+            <summary>Can I make the text larger?</summary>
+            <p>
+              Yes. Use your browser’s zoom controls to enlarge the page while
+              keeping the content and controls available.
+            </p>
+          </details>
+          <details>
+            <summary>How do I find the main sections?</summary>
+            <p>
+              Use the page headings to navigate by section, or use the main
+              navigation links at the top of the page to move between pages.
+            </p>
+          </details>
+        </section>
+
+        <section aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Contact support</h2>
+          <p>This demo form validates your details but does not send messages.</p>
+          <form class="support-form" id="support-form" novalidate>
+            <div class="form-error-banner" id="support-form-error" role="alert" hidden>
+              Please correct the highlighted fields before continuing.
+            </div>
+            <div class="form-field">
+              <label for="support-name">Name</label>
+              <input
+                id="support-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                aria-describedby="support-name-error"
+                required
+              />
+              <span class="field-error" id="support-name-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="support-email">Email</label>
+              <input
+                id="support-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                aria-describedby="support-email-error"
+                required
+              />
+              <span class="field-error" id="support-email-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-field form-field--wide">
+              <label for="support-message">How can we help?</label>
+              <textarea
+                id="support-message"
+                name="message"
+                rows="4"
+                aria-describedby="support-message-error"
+                required
+              ></textarea>
+              <span class="field-error" id="support-message-error" aria-live="polite"></span>
+            </div>
+
+            <button class="help-submit" type="submit">Check form</button>
+            <p class="form-status" id="support-form-status" aria-live="polite"></p>
+          </form>
+        </section>
+      </article>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

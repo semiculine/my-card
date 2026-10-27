@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title description">
+  <title id="title">Explore the trading card</title>
+  <desc id="description">A sample profile card with callouts for the profile, special ability, and stats.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff8f1"/>
+      <stop offset="1" stop-color="#f2d8b8"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" x2="1">
+      <stop stop-color="#7b4b2a"/>
+      <stop offset="1" stop-color="#c77b45"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="300" rx="18" fill="#f7ead8"/>
+  <circle cx="542" cy="50" r="80" fill="#f2c38b" opacity=".28"/>
+  <rect x="34" y="24" width="226" height="252" rx="20" fill="url(#background)" stroke="#c77b45" stroke-width="4"/>
+  <rect x="52" y="40" width="94" height="24" rx="12" fill="#f7d881"/>
+  <text x="99" y="57" text-anchor="middle" fill="#4a2d1f" font-family="Arial, sans-serif" font-size="12" font-weight="700">PROFILE</text>
+  <circle cx="147" cy="105" r="30" fill="#7b4b2a"/>
+  <text x="147" y="114" text-anchor="middle" fill="#fff8f1" font-family="Arial, sans-serif" font-size="25" font-weight="700">CE</text>
+  <text x="147" y="153" text-anchor="middle" fill="#2d1d17" font-family="Arial, sans-serif" font-size="17" font-weight="700">Your character</text>
+  <rect x="52" y="166" width="190" height="34" rx="8" fill="#f2c38b" opacity=".5"/>
+  <text x="64" y="180" fill="#6c4d3a" font-family="Arial, sans-serif" font-size="9" font-weight="700">SPECIAL ABILITY</text>
+  <text x="64" y="192" fill="#2d1d17" font-family="Arial, sans-serif" font-size="10">A unique skill goes here</text>
+  <text x="54" y="218" fill="#4a2d1f" font-family="Arial, sans-serif" font-size="10" font-weight="700">STATS</text>
+  <rect x="54" y="225" width="176" height="7" rx="4" fill="#ddc8b3"/>
+  <rect x="54" y="225" width="132" height="7" rx="4" fill="url(#bar)"/>
+  <rect x="54" y="239" width="176" height="7" rx="4" fill="#ddc8b3"/>
+  <rect x="54" y="239" width="150" height="7" rx="4" fill="url(#bar)"/>
+  <rect x="54" y="253" width="176" height="7" rx="4" fill="#ddc8b3"/>
+  <rect x="54" y="253" width="116" height="7" rx="4" fill="url(#bar)"/>
+  <path d="M288 83h44l18 16" fill="none" stroke="#7b4b2a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="350" cy="99" r="5" fill="#7b4b2a"/>
+  <text x="368" y="86" fill="#4a2d1f" font-family="Arial, sans-serif" font-size="17" font-weight="700">Your profile</text>
+  <text x="368" y="108" fill="#6c4d3a" font-family="Arial, sans-serif" font-size="13">Name and character portrait</text>
+  <path d="M288 181h43l18-3" fill="none" stroke="#7b4b2a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="349" cy="178" r="5" fill="#7b4b2a"/>
+  <text x="368" y="168" fill="#4a2d1f" font-family="Arial, sans-serif" font-size="17" font-weight="700">Special ability</text>
+  <text x="368" y="190" fill="#6c4d3a" font-family="Arial, sans-serif" font-size="13">A quick description of your skill</text>
+  <path d="M288 240h43l18 7" fill="none" stroke="#7b4b2a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="349" cy="247" r="5" fill="#7b4b2a"/>
+  <text x="368" y="237" fill="#4a2d1f" font-family="Arial, sans-serif" font-size="17" font-weight="700">Power stats</text>
+  <text x="368" y="259" fill="#6c4d3a" font-family="Arial, sans-serif" font-size="13">Bars give a quick visual comparison</text>
+</svg>
