@@ -791,6 +791,11 @@ h1 {
   cursor: wait;
 }
 
+.battle-button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
 .dice {
   font-size: 2.2rem;
   animation: rollDice 0.5s ease-in-out;
