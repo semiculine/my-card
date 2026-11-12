@@ -77,4 +77,4 @@ npm run build
 
 The generated static assets are written to `frontend/dist`. Django serves the API only; deploy the built frontend to a static host or configure a production web server to serve it alongside the API.
 
-These commands keep `frontend/package-lock.json` and `backend/requirements.txt` so the grader can reinstall dependencies using the setup steps above.
+These commands keep `frontend/package-lock.json` and `backend/requirements.txt`. Dependencies may be reinstalled using the setup steps above.
