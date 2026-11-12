@@ -77,17 +77,4 @@ npm run build
 
 The generated static assets are written to `frontend/dist`. Django serves the API only; deploy the built frontend to a static host or configure a production web server to serve it alongside the API.
 
-## Prepare a zip submission
-
-Before creating the zip, open PowerShell at the repository root and remove the locally installed dependencies and virtual environment:
-
-```powershell
-if (Test-Path .\frontend\node_modules) {
-    Remove-Item -Recurse -Force .\frontend\node_modules
-}
-if (Test-Path .\backend\.venv) {
-    Remove-Item -Recurse -Force .\backend\.venv
-}
-```
-
 These commands keep `frontend/package-lock.json` and `backend/requirements.txt` so the grader can reinstall dependencies using the setup steps above.
