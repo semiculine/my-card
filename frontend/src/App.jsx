@@ -103,7 +103,7 @@ function TradingCard({ card }) {
   }
 
   return (
-    <>
+    <div className="card-column">
       <article
         className={`card${isFlipped ? ' is-flipped' : ''}${isActive ? ' is-active' : ''}`}
         aria-label={`Trading card for ${card.name}`}
@@ -117,30 +117,30 @@ function TradingCard({ card }) {
         <div className="card__inner">
           <div className="card__face card__face--front" aria-hidden={isFlipped}>
             <header className="card__header">
-              <span className="badge">☕ Rare</span>
+              <span className="badge">Rare</span>
               <span className="card__type">Coffee</span>
             </header>
-            <div className="card__emoji" role="img" aria-label="Coffee">☕</div>
             <div className="card__art" aria-hidden="true">
               <div className="art__glow" />
               <div className="art__chip">LVL 99</div>
+              <div className="card__emoji">☕</div>
               <div className="art__portrait">CE</div>
             </div>
             <section className="card__body">
               <p className="eyebrow">Digital Profile</p>
               <h1>{card.name}</h1>
-              <div className="info-row">
-                <span className="label">Major</span>
-                <span className="value">{card.major}</span>
-              </div>
-              <div className="info-row info-row--highlight">
-                <span className="label">Special Ability</span>
-                <span className="value">{card.ability}</span>
-              </div>
-              <div className="stats" aria-label="Power stats">
+              <p className="card__major">
+                <span>Major</span> · {card.major}
+              </p>
+              <section className="ability-block" aria-labelledby="ability-heading">
+                <h2 id="ability-heading">Special Ability</h2>
+                <p>{card.ability}</p>
+              </section>
+              <section className="stats" aria-label="Power stats">
+                <h2 className="stats__heading">Power Stats</h2>
                 {card.stats.map((stat) => <Stat key={stat.name} {...stat} />)}
-              </div>
-              <footer className="card__footer">Hand-directed by me, built with AI</footer>
+              </section>
+              <footer className="card__footer">NO. 001 • HAND-DIRECTED &amp; AI-BUILT</footer>
             </section>
           </div>
           <div id="card-back" className="card__face card__face--back" aria-hidden={!isFlipped}>
@@ -160,7 +160,7 @@ function TradingCard({ card }) {
       >
         Show fun fact
       </button>
-    </>
+    </div>
   );
 }
 
@@ -201,30 +201,67 @@ function BattlePanel({ stats }) {
   }
 
   return (
-    <section className="battle-panel" aria-label="Battle section">
-      <button className="battle-button" type="button" disabled={isBattling} onClick={startBattle}>
-        Battle!
-      </button>
-      <div className={`dice${isBattling ? ' is-rolling' : ''}`} aria-hidden="true">🎲</div>
-      <div className="battle-summary">
-        <p className="battle-label">Mysterious Rival</p>
-        {isBattling || !rivalStats ? (
-          <div className="battle-duel" aria-hidden="true">
-            <span className="duel-spark duel-spark--left" />
-            <span className="duel-avatar" aria-hidden="true">🥊</span>
-            <span className="duel-spark duel-spark--right" />
-          </div>
-        ) : rivalStats && (
-          <div className="rival-stats">
-            {rivalStats.map((stat) => <Stat key={stat.name} {...stat} rival />)}
-          </div>
-        )}
-      </div>
-      <p className={`battle-result${isWinning ? ' is-winning' : ''}`} aria-hidden="true">{result}</p>
-      <p className="visually-hidden" role="status" aria-live="polite" aria-atomic="true">
-        {announcement}
-      </p>
-    </section>
+    <>
+      <section className="battle-controls" aria-label="Battle controls">
+        <button className="battle-button" type="button" disabled={isBattling} onClick={startBattle}>
+          Battle!
+        </button>
+        <div className={`dice${isBattling ? ' is-rolling' : ''}`} aria-hidden="true">🎲</div>
+        <p className={`battle-result${isWinning ? ' is-winning' : ''}`} aria-hidden="true">{result}</p>
+        <p className="visually-hidden" role="status" aria-live="polite" aria-atomic="true">
+          {announcement}
+        </p>
+      </section>
+      <section className="rival-card rival-panel" aria-label="Mysterious rival card">
+        <div className="rival-card__inner">
+          <header className="card__header">
+            <span className="badge">? Rare</span>
+            <span className="card__type">Rival</span>
+          </header>
+          {rivalStats ? (
+            <div className="rival-card__body">
+              <div className="rival-card__art" aria-hidden="true">
+                <div className="art__glow" />
+                <div className="art__portrait">?</div>
+              </div>
+              <p className="eyebrow">Challenger</p>
+              <h2 className="rival-card__name">Mysterious Rival</h2>
+              <p className="rival-card__subtitle">A new opponent has appeared.</p>
+              <section className="ability-block ability-block--rival" aria-labelledby="rival-ability-heading">
+                <h3 id="rival-ability-heading">Special Ability</h3>
+                <p>??? — their true strengths are still a mystery.</p>
+              </section>
+              <section className="stats stats--rival" aria-label="Rival power stats">
+                <h3 className="stats__heading">Power Stats</h3>
+                {rivalStats.map((stat) => <Stat key={stat.name} {...stat} rival />)}
+              </section>
+            </div>
+          ) : (
+            <div className={`rival-card__back${isBattling ? ' is-battling' : ''}`} aria-hidden={!isBattling}>
+              {isBattling ? (
+                <>
+                  <div className="battle-duel" aria-hidden="true">
+                    <span className="duel-spark duel-spark--left" />
+                    <span className="duel-avatar">🥊</span>
+                    <span className="duel-spark duel-spark--right" />
+                  </div>
+                  <p className="rival-card__prompt">Rival approaching...</p>
+                </>
+              ) : (
+                <div className="rival-card__ornament" aria-hidden="true">
+                  <span>✦</span>
+                  <strong>?</strong>
+                  <span>✦</span>
+                </div>
+              )}
+            </div>
+          )}
+          {!rivalStats && !isBattling && (
+            <p className="rival-card__prompt">Battle to reveal your opponent</p>
+          )}
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -259,8 +296,8 @@ function HomePage() {
     <>
       <WelcomeDialog />
       <main id="main-content" className="page-shell">
-        <div>
-          {apiError && <p className="api-status" role="status">{apiError}</p>}
+        {apiError && <p className="api-status" role="status">{apiError}</p>}
+        <div className="battle-layout">
           <TradingCard card={card} />
           <BattlePanel stats={card.stats} />
         </div>
